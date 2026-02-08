@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day Preksha ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts background */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-heart {
+            font-size: 80px;
+            color: #e74c3c;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10%, 30% {
+                transform: scale(1.1);
+            }
+            20%, 40% {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .message {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.8;
+            margin: 30px 0;
+        }
+
+        .special-message {
+            font-size: 24px;
+            color: #e74c3c;
+            font-style: italic;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+        }
+
+        .envelope {
+            display: none;
+            margin: 30px 0;
+        }
+
+        .envelope.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .love-note {
+            background: #fff3f3;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sparkle {
+            display: inline-block;
+            margin: 0 5px;
+            animation: sparkle 1.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+
+        .date {
+            font-size: 16px;
+            color: #888;
+            margin-top: 30px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.05);
+        }
+
+        .hidden-message {
+            display: none;
+        }
+
+        .hidden-message.reveal {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
+        .countdown {
+            font-size: 18px;
+            color: #e74c3c;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-bg" id="heartBg"></div>
+    
+    <div class="container">
+        <div class="main-heart">❤️</div>
+        <h1>Happy Valentine's Day, Preksha!</h1>
+        
+        <div class="message">
+            To my dearest Preksha,
+            <br><br>
+            Every moment with you is a treasure. You make my world brighter, 
+            my days happier, and my heart fuller. 
+        </div>
+
+        <div class="special-message">
+            <span class="sparkle">✨</span>
+            You are my today and all of my tomorrows
+            <span class="sparkle">✨</span>
+        </div>
+
+        <div class="love-note">
+            <strong>Reasons I love you:</strong><br><br>
+            💖 Your smile lights up my world<br>
+            💖 The way you make me laugh<br>
+            💖 Your kindness and beautiful heart<br>
+            💖 How you understand me perfectly<br>
+            💖 Every little thing about you<br>
+        </div>
+
+        <button class="btn" onclick="revealMessage()">Open Your Special Message 💌</button>
+
+        <div class="envelope hidden-message" id="secretMessage">
+            <div class="love-note">
+                <h2 style="color: #e74c3c; margin-bottom: 15px;">My Love Letter to You, Preksha</h2>
+                <p style="line-height: 1.8; color: #555;">
+                    Words cannot fully express how much you mean to me. 
+                    You've brought so much joy, love, and light into my life. 
+                    With you, I've found my best friend, my partner, and my soulmate.
+                    <br><br>
+                    Preksha, thank you for being you, for loving me, and for making 
+                    every day an adventure. I can't wait to create more 
+                    beautiful memories together.
+                    <br><br>
+                    <strong style="color: #e74c3c;">I love you more than words can say! ❤️</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="photo-placeholder">📷</div>
+            <div class="photo-placeholder">💑</div>
+            <div class="photo-placeholder">🌹</div>
+            <div class="photo-placeholder">💝</div>
+            <div class="photo-placeholder">🥰</div>
+            <div class="photo-placeholder">💕</div>
+        </div>
+
+        <div class="date">
+            Forever yours,<br>
+            February 14, 2026 💕
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            document.getElementById('heartBg').appendChild(heart);
+        }
+
+        // Create multiple hearts
+        for (let i = 0; i < 15; i++) {
+            createHeart();
+        }
+
+        // Reveal hidden message
+        function revealMessage() {
+            const message = document.getElementById('secretMessage');
+            message.classList.add('reveal');
+            
+            // Add confetti effect
+            for (let i = 0; i < 50; i++) {
+                createConfetti();
+            }
+        }
+
+        // Simple confetti effect
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = '-10px';
+            confetti.style.fontSize = '20px';
+            confetti.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+            confetti.style.zIndex = '999';
+            confetti.style.pointerEvents = 'none';
+            document.body.appendChild(confetti);
+            
+            const fall = confetti.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            });
+            
+            fall.onfinish = () => confetti.remove();
+        }
+    </script>
+</body>
+</html>
